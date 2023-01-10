@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Shift-Log",
-    "slug": "Shift-Log",
+    "name": "Shift Log",
+    "slug": "Shift Log",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
