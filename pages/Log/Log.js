@@ -50,7 +50,7 @@ const Log = () => {
     if (amPm >= 12) {
       morningOrNight = "PM";
     }
-    const fullTime = `${hour}:${minutes} ${morningOrNight}:`;
+    const fullTime = `${hour}:${minutes} ${morningOrNight}`;
     setTime(fullTime);
   };
 
