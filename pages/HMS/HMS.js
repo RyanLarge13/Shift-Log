@@ -62,6 +62,7 @@ const HMS = () => {
         Sinks: sinks,
         Floats: floats,
         Cone: cone,
+        Place: allItems.length + 1
       };
     DB.put(newItem)
       .then((doc) => console.log(doc))

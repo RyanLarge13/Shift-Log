@@ -18,7 +18,7 @@ export default function App() {
         <NativeRouter>
           <View style={styles.nav}>
             <View style={styles.linkContainer}>
-              <Link path="/" style={styles.link}>
+              <Link to="/" style={styles.link}>
                 <Text>Home</Text>
               </Link>
               <Link to="/log" style={styles.link}>
@@ -36,7 +36,7 @@ export default function App() {
             </View>
 
             <Routes>
-              <Route exact path="/" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/log" element={<Log />} />
               <Route path="/todos" element={<Todos />} />
               <Route path="/techtimes" element={<TechTimes />} />
@@ -45,10 +45,7 @@ export default function App() {
           </View>
         </NativeRouter>
       </ScrollView>
-      <Toast
-        position='bottom'
-        bottomOffset={20}
-      /> 
+      <Toast position="bottom" bottomOffset={20} />
     </>
   );
 }

@@ -3,12 +3,16 @@ import { View, Text, Pressable, TextInput, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import PouchDB from "pouchdb-react-native";
 import Toast from "react-native-toast-message";
+import EditLogModal from "./EditLogModal";
+import DeleteItemModal from "./DeleteItemModal";
 
 const LogList = () => {
   const [allLogs, setAllLogs] = useState([]);
   const [edit, setEdit] = useState(false);
   const [newText, setNewText] = useState("");
   const [confirm, setConfirm] = useState(false);
+  const [itemId, setItemId] = useState("");
+  const [defaultText, setDefaultText] = useState("");
 
   const DB = new PouchDB("log");
   const todaysDate = new Date().toLocaleDateString("en-US", {
@@ -35,20 +39,32 @@ const LogList = () => {
     });
   };
 
-  const deleteItem = async (id) => {
-    DB.get(id)
+  const deleteItem = async () => {
+    DB.get(itemId)
       .then((doc) => DB.remove(doc))
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
-setConfirm(false)
-    showToast("error", "Successfully deleted log:", id);
+    setConfirm(false);
+    showToast("error", "Successfully deleted log:", itemId);
   };
 
-  const editItem = (id) => {
-    DB.get(id)
+  const bringUpModal = (id, text) => {
+    setDefaultText(text);
+    setItemId(id);
+    setEdit(true);
+  };
+
+  const setConfirmation = (id) => {
+    setConfirm(true);
+    setItemId(id);
+  };
+
+  const editItem = () => {
+    DB.get(itemId)
       .then((doc) => {
         return DB.put({
-          _id: id,
+          _id: itemId,
           _rev: doc._rev,
           Time: doc.Time,
           Text: newText,
@@ -68,40 +84,16 @@ setConfirm(false)
           allLogs.map((log) => (
             <View key={log.doc._id} style={styles.listItem}>
               <Text>{log.doc.Time}</Text>
-              {edit ? (
-                <View>
-                  <TextInput
-                    placeholder="Edit"
-                    defaultValue={log.doc.Text}
-                    onChangeText={(text) => setNewText(text)}
-                  />
-                  <Pressable onPress={() => editItem(log.doc._id)}>
-                    <Text>Submit</Text>
-                  </Pressable>
-                </View>
-              ) : (
-                <Text>{log.doc.Text}</Text>
-              )}
-              {confirm ? (
-                <View>
-                  <Text>Are You Sure?</Text>
-                  <Pressable onPress={() => deleteItem(log.doc._id)}>
-                    <Text>Yes</Text>
-                  </Pressable>
-                  <Pressable onPress={() => setConfirm(false)}>
-                    <Text>No</Text>
-                  </Pressable>
-                </View>
-              ) : (
-                <Pressable
-                  style={styles.close}
-                  onPress={() => setConfirm(true)}
-                >
-                  <Icon style={styles.closeIcon} name="close" />
-                </Pressable>
-              )}
+              <Text>{log.doc.Text}</Text>
+
               <Pressable
-                onPress={() => (edit ? setEdit(false) : setEdit(true))}
+                style={styles.close}
+                onPress={() => setConfirmation(log.doc._id)}
+              >
+                <Icon style={styles.closeIcon} name="close" />
+              </Pressable>
+              <Pressable
+                onPress={() => bringUpModal(log.doc._id, log.doc.Text)}
                 style={styles.edit}
               >
                 <Icon style={styles.editIcon} name="edit" />
@@ -112,6 +104,18 @@ setConfirm(false)
           <Text style={styles.listTitle}>Start Your Log</Text>
         )}
       </View>
+      <EditLogModal
+        updateText={(text) => setNewText(text)}
+        text={defaultText}
+        submit={editItem}
+        modalView={edit}
+        closeModal={() => setEdit(false)}
+      />
+      <DeleteItemModal
+        confirm={confirm}
+        deleteItem={deleteItem}
+        closeModal={() => setConfirm(false)}
+      />
     </View>
   );
 };
@@ -119,9 +123,9 @@ setConfirm(false)
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    minHeight: 500,
     justifyContent: "flex-start",
     alignItems: "center",
+    marginBottom: "33%",
   },
   title: {
     textAlign: "center",

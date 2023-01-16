@@ -14,7 +14,10 @@ const HMSList = () => {
       include_docs: true,
       attachments: true,
     })
-      .then((res) => setList(res.rows))
+      .then((res) => {
+        const sortedRows = res.rows.sort((a, b) => a.doc.Place > b.doc.Place);
+        return setList(sortedRows);
+      })
       .catch((err) => console.log(err));
   }, [list]);
 
@@ -37,7 +40,7 @@ const HMSList = () => {
   return (
     <View>
       {list.length < 1 ? (
-        <Text>Add Numbers to Your List</Text>
+        <Text style={styles.addGrab}>Add Grabs</Text>
       ) : (
         <View>
           {list.map((item) => (
@@ -67,13 +70,19 @@ const HMSList = () => {
 };
 
 const styles = StyleSheet.create({
+  addGrab: {
+    textAlign: "center",
+    fontSize: 25,
+    marginVertical: 25,
+  },
   listItem: {
     backgroundColor: "#fff",
     padding: 10,
     marginVertical: 15,
     justifyContent: "center",
     alignItems: "center",
-    elevation: 25,
+    borderRadius: 10,
+    elevation: 5,
   },
   close: {
     position: "absolute",
