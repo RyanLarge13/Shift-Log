@@ -50,7 +50,7 @@ const Todos = () => {
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 400,
+    minHeight: 600,
   },
   title: {
     textAlign: "center",

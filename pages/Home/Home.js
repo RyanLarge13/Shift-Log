@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import PouchDB from "pouchdb-react-native";
+import GetDone from "./components/GetDone";
 
 const Home = () => {
   const [user, setUser] = useState(false);
@@ -61,9 +62,7 @@ const Home = () => {
   return (
     <View>
       {user ? (
-        <View>
-          <Text style={styles.title}>Welcome</Text>
-          <Text style={styles.name}>{user.Name}</Text>
+        <View style={styles.container}>
           <Text style={styles.date}>{date}</Text>
           <View style={styles.timeContainer}>
             <Text style={styles.time}>{`${hours % 12 || 12}:${
@@ -75,6 +74,9 @@ const Home = () => {
             }`}</Text>
             <Text style={styles.amPM}>{amPm}</Text>
           </View>
+          <Text style={styles.name}>{user.Name}</Text>
+          <Text>Here are some hourly reminders...</Text>
+          <GetDone />
         </View>
       ) : (
         <View>
@@ -92,13 +94,10 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
-  title: {
-    textAlign: "center",
-    fontSize: 20,
-    marginTop: 50,
+  container: {
+    padding: 25,
   },
   name: {
-    textAlign: "center",
     fontSize: 60,
     marginVertical: 25,
   },
@@ -110,14 +109,21 @@ const styles = StyleSheet.create({
   },
   timeContainer: {
     justifyContent: "center",
+    width: "100%",
+    backgroundColor: "#000",
+    borderRadius: 10,
+    elevation: 5,
+    paddingVertical: 10,
   },
   time: {
     textAlign: "center",
     fontSize: 45,
+    color: "#fff",
   },
   amPM: {
     textAlign: "center",
     fontSize: 25,
+    color: "#fff",
   },
 });
 
