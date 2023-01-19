@@ -91,7 +91,7 @@ const TechTimes = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>Tech Times</Text>
       <View style={styles.threeAndFour}>
         <Text style={styles.furnaceTitle}> 3 & 4 Furnace</Text>
@@ -112,7 +112,7 @@ const TechTimes = () => {
             placeholder="GRIND"
           />
           <Pressable onPress={add34} style={styles.add}>
-            <Text>Add</Text>
+            <Text style={styles.addText}>Add</Text>
           </Pressable>
           <TextInput
             onChangeText={(text) => setMgo(text)}
@@ -120,7 +120,7 @@ const TechTimes = () => {
             placeholder="MgO %"
           />
           <Pressable onPress={addMgo} style={styles.add}>
-            <Text>Add</Text>
+            <Text style={styles.addText}>Add</Text>
           </Pressable>
         </View>
       </View>
@@ -138,7 +138,7 @@ const TechTimes = () => {
             placeholder="GRIND"
           />
           <Pressable onPress={add5Furnace} style={styles.add}>
-            <Text>Add</Text>
+            <Text style={styles.addText}>Add</Text>
           </Pressable>
           <TextInput
             onChangeText={(text) => setScreens(text)}
@@ -146,7 +146,7 @@ const TechTimes = () => {
             placeholder="SCREENS"
           />
           <Pressable style={styles.add} onPress={addScreens}>
-            <Text>Add</Text>
+            <Text style={styles.addText}>Add</Text>
           </Pressable>
         </View>
       </View>
@@ -157,6 +157,9 @@ const TechTimes = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: "25%",
+  },
   title: {
     fontSize: 50,
     marginVertical: 50,
@@ -176,19 +179,21 @@ const styles = StyleSheet.create({
     elevation: 5,
     backgroundColor: "#fff",
     textAlign: "center",
+    alignSelf: "center",
+    width: "90%",
   },
   add: {
-    width: "25%",
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    backgroundColor: "#f0f",
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    backgroundColor: "#000",
     alignSelf: "center",
-    justifyContent: "center",
-    alignItems: "center",
     borderRadius: 10,
     elevation: 5,
     marginBottom: 25,
     marginTop: 5,
+  },
+  addText: {
+    color: "#fff",
   },
 });
 

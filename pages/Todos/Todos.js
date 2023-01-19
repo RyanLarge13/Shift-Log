@@ -28,7 +28,7 @@ const Todos = () => {
       .catch((err) => console.log(err));
 
     showToast("success", "Successfully Added Todo", null);
-    setText("")
+    setText("");
   };
 
   return (
@@ -41,7 +41,7 @@ const Todos = () => {
         onChangeText={(text) => setText(text)}
       />
       <Pressable style={styles.add} onPress={addTodo}>
-        <Text>Add</Text>
+        <Text style={{color: "#fff"}} >Add</Text>
       </Pressable>
       <TodoList />
     </View>
@@ -50,7 +50,8 @@ const Todos = () => {
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 600,
+    marginTop: "25%",
+    alignItems: "center",
   },
   title: {
     textAlign: "center",
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     marginVertical: 50,
   },
   input: {
-    width: "100%",
+    width: "90%",
     borderRadius: 10,
     paddingHorizontal: 5,
     paddingVertical: 10,
@@ -68,11 +69,11 @@ const styles = StyleSheet.create({
   add: {
     alignSelf: "center",
     marginVertical: 50,
-    paddingVertical: 5,
-    paddingHorizontal: 15,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     borderRadius: 10,
     elevation: 5,
-    backgroundColor: "#f0f",
+    backgroundColor: "#000",
   },
 });
 

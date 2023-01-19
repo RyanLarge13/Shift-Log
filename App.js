@@ -1,4 +1,3 @@
-
 import { StatusBar } from "expo-status-bar";
 import { ScrollView, Pressable } from "react-native";
 import Toast from "react-native-toast-message";
@@ -9,9 +8,9 @@ const App = () => {
   return (
     <>
       <StatusBar />
-        <ScrollView>
-          <Nav />
-        </ScrollView>
+      <ScrollView>
+        <Nav />
+      </ScrollView>
       <Header />
       <Toast position="bottom" bottomOffset={20} />
     </>

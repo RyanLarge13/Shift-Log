@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Pressable } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import PouchDB from "pouchdb-react-native";
+import Toast from "react-native-toast-message";
 
 const Five = () => {
   const [list, setList] = useState(false);
@@ -24,6 +25,14 @@ const Five = () => {
     grabScreens();
   }, [screens]);
 
+  const showToast = (type, message, message2) => {
+    Toast.show({
+      type: type,
+      text1: message,
+      text2: message2,
+    });
+  };
+
   const grabScreens = () => {
     screensDB
       .allDocs({
@@ -44,6 +53,12 @@ const Five = () => {
       .get(screensId)
       .then((doc) => screensDB.remove(doc))
       .catch((err) => console.log(err));
+
+    showToast(
+      "error",
+      "Successfully delete 5F Tech Times and Screens",
+      `Screens: ${screensId}, Tech Time: ${id} `
+    );
   };
 
   return (
@@ -86,13 +101,15 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     padding: 10,
     backgroundColor: "#fff",
+    width: "90%",
+    alignSelf: "center",
   },
   close: {
     paddingVertical: 10,
     paddingHorizontal: 10,
     borderRadius: 10,
     elevation: 5,
-    backgroundColor: "#f0f",
+    backgroundColor: "#f00",
     position: "absolute",
     top: -10,
     right: -10,

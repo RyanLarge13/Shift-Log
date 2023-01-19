@@ -62,7 +62,7 @@ const HMS = () => {
         Sinks: sinks,
         Floats: floats,
         Cone: cone,
-        Place: allItems.length + 1
+        Place: allItems.length + 1,
       };
     DB.put(newItem)
       .then((doc) => console.log(doc))
@@ -102,7 +102,7 @@ const HMS = () => {
           onChangeText={(text) => setCone(text)}
         />
         <Pressable style={styles.add} onPress={runChecks}>
-          <Text>Add</Text>
+          <Text style={{ color: "#fff" }}>Add</Text>
         </Pressable>
       </View>
       <HMSList />
@@ -111,7 +111,9 @@ const HMS = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    marginTop: "25%",
+  },
   title: {
     fontSize: 50,
     marginVertical: 50,
@@ -127,14 +129,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   add: {
-    paddingVertical: 5,
-    paddingHorizontal: 15,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     marginVertical: 25,
     borderRadius: 10,
-    backgroundColor: "#29f",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "#000",
     elevation: 5,
+    alignSelf: "center"
   },
 });
 

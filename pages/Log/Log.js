@@ -32,7 +32,7 @@ const Log = () => {
       .catch((err) => console.log(err));
 
     setContext("");
-    showToast("Successfully Added Log", "success")
+    showToast("Successfully Added Log", "success");
   };
 
   const createTime = () => {
@@ -65,7 +65,7 @@ const Log = () => {
           value={context}
         />
         <Pressable style={styles.add} onPress={createItem}>
-          <Text>Add</Text>
+          <Text style={{ color: "#fff" }}>Add</Text>
         </Pressable>
       </View>
       <LogList />
@@ -76,7 +76,7 @@ const Log = () => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    marginTop: 50,
+    marginTop: "25%",
     alignItems: "center",
   },
   title: {
@@ -88,20 +88,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    marginVertical: 5,
-    width: "80%",
+    marginVertical: 10,
+    width: "90%",
     backgroundColor: "#fff",
-    padding: 5,
+    padding: 10,
     borderRadius: 10,
     elevation: 5,
   },
   add: {
     marginTop: 15,
-    paddingVertical: 5,
-    paddingHorizontal: 15,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     borderRadius: 10,
     elevation: 5,
-    backgroundColor: "#f0f",
+    backgroundColor: "#000",
   },
 });
 

@@ -122,7 +122,7 @@ const LogList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: "90%",
     justifyContent: "flex-start",
     alignItems: "center",
     marginBottom: "33%",
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   close: {
-    backgroundColor: "#b300f0",
+    backgroundColor: "#f00",
     borderRadius: 10,
     width: 24,
     height: 24,
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   edit: {
-    backgroundColor: "#f0f",
+    backgroundColor: "#000",
     borderRadius: 10,
     width: 24,
     height: 24,
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
   },
   editIcon: {
     fontSize: 15,
-    color: "#000",
+    color: "#fff",
   },
 });
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 import {
   odd,
   even,
@@ -23,11 +23,12 @@ const GetDone = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       {reminders ? (
         reminders.map((item, index) => (
-          <View key={index}>
-            <Text>{item.reminder}</Text>
+          <View key={index} style={styles.reminder}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.desc}>{item.reminder}</Text>
           </View>
         ))
       ) : (
@@ -36,5 +37,23 @@ const GetDone = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 50,
+  },
+  reminder: {
+    marginVertical: 15,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: "#fff",
+    elevation: 5,
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 5,
+  },
+  desc: {},
+});
 
 export default GetDone;

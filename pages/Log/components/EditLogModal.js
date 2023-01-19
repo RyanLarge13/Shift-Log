@@ -10,7 +10,7 @@ import {
 
 const EditLogModal = ({ updateText, text, submit, modalView, closeModal }) => {
   return (
-    <Modal animationType="slide" visible={modalView} transparent={true}>
+    <Modal animationType="fade" visible={modalView} transparent={true}>
       <View style={styles.modalContainer}>
         <TextInput
           style={styles.input}
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     height: "33%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f0f",
+    backgroundColor: "#000",
     elevation: 5,
     borderRadius: 10,
     marginTop: "auto",

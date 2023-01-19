@@ -50,10 +50,10 @@ const HMSList = () => {
               <Text style={styles.floats}>
                 {item.doc.Floats === ""
                   ? "- No Floats"
-                  : "Floats:" + item.doc.Floats}
+                  : "Floats: " + item.doc.Floats}
               </Text>
               <Text>
-                {item.doc.Cone === "" ? "- No Cone" : "Cone" + item.doc.Cone}
+                {item.doc.Cone === "" ? "- No Cone" : "Cone: " + item.doc.Cone}
               </Text>
               <Pressable
                 onPress={() => deleteItem(item.doc._id)}
@@ -83,6 +83,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
     elevation: 5,
+    width: "90%",
+    alignSelf: "center",
   },
   close: {
     position: "absolute",
@@ -93,7 +95,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#29f",
+    backgroundColor: "#f00",
     elevation: 5,
   },
   closeIcon: {
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
     padding: 10,
     color: "#fff",
     elevation: 5,
-    backgroundColor: "#29f",
+    backgroundColor: "#000",
   },
   floats: {
     marginVertical: 5,

@@ -34,7 +34,7 @@ const TodoList = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       {todos.length < 1
         ? ""
         : todos.map((todo) => (
@@ -53,6 +53,10 @@ const TodoList = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    width: "80%",
+    minHeight: 200,
+  },
   todo: {
     width: "100%",
     paddingHorizontal: 10,
@@ -69,7 +73,7 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     borderRadius: 10,
-    backgroundColor: "#f09",
+    backgroundColor: "#f00",
     elevation: 5,
     justifyContent: "center",
     alignItems: "center",

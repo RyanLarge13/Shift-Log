@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Pressable, Modal } from "react-native";
 
 const DeleteItemModal = ({ confirm, deleteItem, closeModal }) => {
   return (
-    <Modal visible={confirm} animatiomType="slide" transparent={true}>
+    <Modal visible={confirm} animationType="fade" transparent={true}>
       <View style={styles.container}>
         <Text>Are You Sure?</Text>
         <View style={styles.btnContainer}>
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     height: "33%",
     borderRadius: 10,
     marginTop: "auto",
-    backgroundColor: "#f0f",
+    backgroundColor: "#f33",
     elevation: 5,
     justifyContent: "center",
     alignItems: "center",

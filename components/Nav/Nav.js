@@ -58,7 +58,7 @@ const Nav = () => {
                 width: "90%",
                 justifyContent: "center",
                 alignItems: "center",
-                alignSelf: "center", 
+                alignSelf: "center",
                 flexDirection: "row",
                 flexWrap: "wrap",
                 zIndex: 500,
@@ -78,10 +78,10 @@ const Nav = () => {
                 source={require(linkImg)}
               >
                 <Pressable
-                  style={styles.toggleContainer}
+                  style={styles.toggleContainerClose}
                   onPress={animateClosed}
                 >
-                  <Icon style={styles.toggle} name="close" />
+                  <Icon style={styles.toggleClose} name="close" />
                 </Pressable>
                 <View style={{ paddingVertical: 25 }}>
                   <Link onPress={animateClosed} to="/" style={styles.link}>
@@ -140,8 +140,19 @@ const styles = StyleSheet.create({
     left: 10,
     top: 10,
   },
+  toggleContainerClose: {
+    position: "absolute",
+    left: 10,
+    top: 10,
+    borderRadius: 5,
+    backgroundColor: "#000",
+  },
   toggle: {
     fontSize: 40,
+  },
+  toggleClose: {
+    fontSize: 40,
+    color: "#fff",
   },
   link: {
     margin: 15,
