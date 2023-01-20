@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { View, Text, TextInput, StyleSheet, Pressable } from "react-native";
 import PouchDB from "pouchdb-react-native";
 import Toast from "react-native-toast-message";
@@ -41,7 +41,7 @@ const Todos = () => {
         onChangeText={(text) => setText(text)}
       />
       <Pressable style={styles.add} onPress={addTodo}>
-        <Text style={{color: "#fff"}} >Add</Text>
+        <Text style={{ color: "#fff" }}>Add</Text>
       </Pressable>
       <TodoList />
     </View>

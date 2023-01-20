@@ -127,6 +127,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     elevation: 5,
     textAlign: "center",
+    width: "90%",
+    alignSelf: "center",
   },
   add: {
     paddingVertical: 10,
@@ -135,7 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#000",
     elevation: 5,
-    alignSelf: "center"
+    alignSelf: "center",
   },
 });
 

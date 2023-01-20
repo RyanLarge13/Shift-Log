@@ -38,3 +38,9 @@ export const endOfShift = [
     reminder: "Go collect everyone's papers for Daddy",
   },
 ];
+
+export const pickupRelief = [
+	{
+		title: "Pick Up Relief", 
+		reminder: "Remember to go pick up your relief! They should arrive on the 30 of this hour."
+	}]

@@ -6,6 +6,7 @@ import {
   View,
   StyleSheet,
   Pressable,
+  ScrollView,
 } from "react-native";
 import { NativeRouter, Routes, Route, Link } from "react-router-native";
 import Icon from "react-native-vector-icons/AntDesign";
@@ -119,13 +120,15 @@ const Nav = () => {
           )}
         </View>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/log" element={<Log />} />
-          <Route path="/todos" element={<Todos />} />
-          <Route path="/techtimes" element={<TechTimes />} />
-          <Route path="/hms" element={<HMS />} />
-        </Routes>
+        <ScrollView>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/log" element={<Log />} />
+            <Route path="/todos" element={<Todos />} />
+            <Route path="/techtimes" element={<TechTimes />} />
+            <Route path="/hms" element={<HMS />} />
+          </Routes>
+        </ScrollView>
       </View>
     </NativeRouter>
   );
@@ -134,18 +137,18 @@ const Nav = () => {
 const styles = StyleSheet.create({
   nav: {
     marginTop: 100,
+    zIndex: 999,
   },
   toggleContainer: {
     position: "absolute",
     left: 10,
     top: 10,
+    zIndex: 999,
   },
   toggleContainerClose: {
     position: "absolute",
     left: 10,
     top: 10,
-    borderRadius: 5,
-    backgroundColor: "#000",
   },
   toggle: {
     fontSize: 40,
