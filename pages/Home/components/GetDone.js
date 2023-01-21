@@ -19,7 +19,7 @@ const GetDone = () => {
   const check = (hour) => {
     if (hour === 4 || hour === 16) return setReminders(endOfShift);
     if (hour === 2 || hour === 14) return setReminders(measurementsHour);
-    if (hour === 5) return setReminders(pickupRelief);
+    if (hour === 5 || hour === 17) return setReminders(pickupRelief);
     if (hour % 2 === 0) return setReminders(even);
     if (hour % 2 !== 0) return setReminders(odd);
   };
