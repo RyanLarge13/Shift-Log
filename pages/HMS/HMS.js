@@ -32,7 +32,6 @@ const HMS = () => {
   let time;
   let amPm;
   const runChecks = async () => {
-    await checkDate();
     if (sinks === "") return showToast("error", "Add Sinks Grab", null);
 
     if (allItems.length === 5)
@@ -44,14 +43,21 @@ const HMS = () => {
     if (allItems.length >= 3) {
       time = allItems.length + allItems.length - 4;
     }
+    await checkDate();
     await add();
     resetState();
   };
 
   const checkDate = () => {
     const date = new Date().getHours();
-    if (date < 12) amPm = "AM";
-    if (date >= 12) amPm = "PM";
+    if (allItems.length < 2) {
+      if (date < 12) amPm = "AM";
+      if (date >= 12) amPm = "PM";
+    }
+    if (allItems.length >= 2) {
+      if (date < 12) amPm = "PM";
+      if (date >= 12) amPm = "AM"
+    }
   };
 
   const add = () => {

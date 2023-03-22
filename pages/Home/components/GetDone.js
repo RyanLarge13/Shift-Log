@@ -1,20 +1,39 @@
 import { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
+import * as Notifications from "expo-notifications";
 import {
   odd,
   even,
   measurementsHour,
   endOfShift,
-  pickupRelief
+  pickupRelief,
 } from "../../../constants/hourlyReminders.js";
 
 const GetDone = () => {
   const [reminders, setReminders] = useState(null);
 
+  Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: false,
+      shouldSetBadge: false,
+    }),
+  });
+
   useEffect(() => {
     const hour = new Date().getHours();
     check(hour);
   }, []);
+
+const setNotif = () => {
+  Notifications.scheduleNotificationAsync({
+    content: {
+      title: "Look at that notification",
+      body: "I'm so proud of myself!",
+    },
+    trigger: null,
+  });
+} 
 
   const check = (hour) => {
     if (hour === 4 || hour === 16) return setReminders(endOfShift);
