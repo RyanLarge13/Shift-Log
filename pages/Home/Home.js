@@ -51,7 +51,7 @@ const Home = () => {
   const addUser = () => {
     const newUser = {
       _id: id,
-      Name: name,
+      name: name,
     };
     userDB
       .put(newUser)
@@ -79,12 +79,14 @@ const Home = () => {
           <GetDone />
         </View>
       ) : (
-        <View>
+        <View style={styles.newUser}>
           <TextInput
+            style={styles.newUserInput}
             placeholder="Name?"
             onChangeText={(text) => setName(text)}
+            onSubmitEditing={addUser}
           />
-          <Pressable onPress={addUser}>
+          <Pressable style={styles.newUserBtn} onPress={addUser}>
             <Text>Add Name</Text>
           </Pressable>
         </View>
@@ -124,6 +126,26 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 25,
     color: "#fff",
+  },
+  newUser: {
+    padding: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  newUserInput: {
+    padding: 8,
+    elevation: 10,
+    backgroundColor: "#fff",
+    borderRadius: 5,
+    width: "100%",
+  },
+  newUserBtn: {
+    marginTop: 25,
+    paddingVertical: 5,
+    paddingHorizontal: 25,
+    borderRadius: 5,
+    elevation: 10,
+    backgroundColor: "#f44",
   },
 });
 

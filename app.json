@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Shift Log",
-    "slug": "Shift Log",
+    "name": "ShiftLog",
+    "slug": "ShiftLog",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,7 +15,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -23,10 +25,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#2b085e"
-      }
+      },
+      "package": "com.ryanlarge.ShiftLog"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8f6e815c-59d8-4f1d-8b1f-bcca88dd6c0d"
+      }
     }
   }
 }
